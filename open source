@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周末出去玩 - 对话互动</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .conversation { margin: 20px; }
+  .question { margin: 10px 0; }
+  .answers { margin: 10px 0; }
+  button { margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="conversation">
+  <div class="question" id="question1">
+    <!-- 这里是第一层对话的问题 -->
+    你想在周末做什么？
+  </div>
+  <div class="answers" id="answers1">
+    <!-- 这里是第一层对话的回答选项 -->
+    <button onclick="nextQuestion(2, '去海边')">去海边</button>
+    <button onclick="nextQuestion(2, '爬山')">爬山</button>
+    <button onclick="nextQuestion(2, '逛公园')">逛公园</button>
+  </div>
+</div>
+
+<script>
+// 假设每个选项的回答都固定好了，我们可以将其存储在一个对象中
+var dialogues = {
+  // 第2层对话
+  "去海边": {
+    question: "你想去哪个海边？",
+    answers: ["金沙滩", "银沙滩", "碧海蓝天"]
+  },
+  // 这里可以继续添加更多层对话
+};
+
+function nextQuestion(level, answer) {
+  // 根据答案获取下一层对话
+  var nextDialogue = dialogues[answer];
+  if (nextDialogue) {
+    // 更新问题
+    document.getElementById("question1").textContent = nextDialogue.question;
+    // 更新答案选项
+    var answersDiv = document.getElementById("answers1");
+    answersDiv.innerHTML = ""; // 清空当前的答案选项
+    nextDialogue.answers.forEach(function(ans) {
+      var button = document.createElement("button");
+      button.textContent = ans;
+      // 假设每次只进入下一层，可以继续调用 nextQuestion 并增加层级
+      button.onclick = function() { nextQuestion(level + 1, ans); };
+      answersDiv.appendChild(button);
+    });
+  }
+}
+</script>
+</body>
+</html>
