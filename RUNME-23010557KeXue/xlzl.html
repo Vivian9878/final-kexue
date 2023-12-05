@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="stylesheet" type="text/css" href="xlzl.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psychosocial Journey</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    /* #videoPlayer {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: -20;
+      left: -20;
+    } */
+    #mainContent {
+      position: absolute;
+      top: 20;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* background: rgba(255, 255, 255, 0.8); */
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="audioPlayer" autoplay loop>
+  <source src="background_music.mp3" type="audio/mpeg">
+</audio>
+
+<video id="videoPlayer" >
+  <source src="video_01.mp4" type="video/mp4">
+</video>
+
+
+<!-- 点击提示图标 -->
+<div id="clickPrompt" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); cursor: pointer;">
+  <!-- 这里可以用一个图像或者图标，例如： -->
+  <img src="click_icon_155646.png" alt="Click Prompt Icon">
+</div>
+
+<!-- 音效元素 -->
+<audio id="clickSound" src="click.mp3"></audio>
+
+<div id="mainContent">
+
+<div class="chat-container" style="margin-top: 100px">
+  <button id="fixedButton" onclick="snow(5000)" >🍦</button>
+  <div class="conversation" id="conversation">
+    <div class="message" style="margin-top: 10px">
+      <div class="question">
+        Hello! I'm your spiritual journey guide. Let's start our spiritual journey next!
+      </div>
+    </div>
+    <div class="message" style="display:flex;" id="storyMessage">
+      <div class="question" style="width: 177px">
+        I'll tell you a funny story!
+      </div>
+    </div>
+  </div>
+  <!-- 持续时间 毫秒 -->
+  <div class="answer-buttons">
+    <button onclick="addDialogue('👌ok')">👌ok</button>
+
+  <div>
+</div>
+<script src="xlzl.js"></script>
+</body>
+</html>

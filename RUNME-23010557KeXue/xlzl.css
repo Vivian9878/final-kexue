@@ -1,0 +1,165 @@
+
+#videoPlayer {
+  position: fixed;
+  top: -22%;
+  left: -17%;
+  width: 135%;
+  height: 140%;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+#clickPrompt img {
+  width: 50px; /* 或者您需要的任何尺寸 */
+  height: auto ; /* 保持图像的纵横比 */
+  cursor: pointer; /* 可选，显示一个手形光标表示可以点击 */
+}
+#fixedButton {
+  position: fixed; 
+  top: 40%; /* 距离顶部200像素 */
+  right: 12%; /* 距离右边20像素 */
+  background-color: #4CAF50; /* 背景颜色 */
+  color: white; /* 文字颜色 */
+  border: 1px solid rgb(45, 45, 45);
+  border-radius: 15px; /* 边框圆角 */
+  padding: 15px 20px; /* 内边距 */
+  cursor: pointer; /* 鼠标样式 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 阴影效果 */
+}
+#fixedButton:hover {
+  background-color: #2380f0; /* 鼠标悬停时的背景颜色 */
+}
+
+
+/* 定义一个动画 */
+@keyframes message-send {
+    from {
+      transform: scale(0.5); /* 开始时缩小到50% */
+      opacity: 0; /* 开始时完全透明 */
+    }
+    to {
+      transform: scale(1); /* 结束时恢复到原始大小 */
+      opacity: 1; /* 结束时完全不透明 */
+    }
+  }
+@keyframes typing-indicator {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+body { 
+    font-family: 'Arial', sans-serif; 
+    height: 80%;
+    width: 100;
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #4e4e4e; 
+    background-image: url('photo.png'); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center; 
+  }
+  
+  .chat-container {
+    width: 60%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 80vh; 
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.2);  */
+    margin: auto; /* 添加这一行来居中 */
+  }
+ 
+  .conversation {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid rgb(45, 45, 45);
+    border-top-left-radius: 13px; 
+    border-top-right-radius: 13px; 
+    border-bottom-left-radius: 13px; /* 调整左下角的圆角半径 */
+    border-bottom-right-radius: 13px; /* 调整右下角的圆角半径 */
+    padding: 0px;
+    margin-bottom: 0px; 
+  }
+  
+  .message {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    animation: message-send 0.5s ease-out; /* 应用动画，持续时间0.5秒，缓出效果 */
+  }
+  .typing-indicator {
+    /* ... 其他样式 ... */
+    animation: typing-indicator 0.5s ease-out 0.5s; /* 延迟0.8秒开始 */
+  }
+  
+  .question, .user-answer {
+    max-width: 70%;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin: 5px 20px 5px 20px;
+    word-break: break-word;
+  }
+  
+  .question {
+    background-color: #e9eff1;
+  }
+  
+  .dialogue-gif {
+    max-width: 25%; /* 确保图像不会超过容器的宽度 */
+    height: auto; /* 保持图像的纵横比 */
+    margin: 5px 0px 5px 20px; /* 添加一些间隙 */
+    top:5;
+    left:20;
+    border-radius: 15px;
+  }
+  .user-answer {
+    margin-left: auto;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .answer-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #fff; 
+    border: 1px solid rgb(45, 45, 45);
+    border-top-left-radius: 13px; 
+    border-top-right-radius: 13px; 
+    border-bottom-left-radius: 13px; /* 调整左下角的圆角半径 */
+    border-bottom-right-radius: 13px; /* 调整右下角的圆角半径 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: px 0;
+  }
+  
+  
+  button {
+    background-color: #2380f0;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #e472e7;
+  }
+  
